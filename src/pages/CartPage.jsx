@@ -62,7 +62,7 @@ export default function CartPage({ cart, onUpdateQty, onRemove, setPage }) {
                   </td>
 
                   {/* Unit price */}
-                  <td className="px-6 py-4 text-sm text-stone-600 font-mono">${item.price.toFixed(2)}</td>
+                  <td className="px-6 py-4 text-sm text-stone-600 font-mono">Rs.{item.price.toFixed(2)}</td>
 
                   {/* Qty controls */}
                   <td className="px-6 py-4">
@@ -81,7 +81,7 @@ export default function CartPage({ cart, onUpdateQty, onRemove, setPage }) {
 
                   {/* Row total */}
                   <td className="px-6 py-4 text-sm font-semibold text-stone-900 font-mono">
-                    ${(item.price * item.qty).toFixed(2)}
+                    Rs.{(item.price * item.qty).toFixed(2)}
                   </td>
 
                   {/* Remove */}
@@ -107,15 +107,15 @@ export default function CartPage({ cart, onUpdateQty, onRemove, setPage }) {
           <div className="flex flex-col gap-3 text-sm">
             <div className="flex justify-between text-stone-600">
               <span>Subtotal</span>
-              <span className="font-mono">${subtotal.toFixed(2)}</span>
+              <span className="font-mono">Rs.{subtotal.toFixed(2)}</span>
             </div>
             <div className="flex justify-between text-stone-600">
               <span>Shipping</span>
-              <span className="font-mono">${shipping.toFixed(2)}</span>
+              <span className="font-mono">Rs.{shipping.toFixed(2)}</span>
             </div>
             <div className="border-t border-stone-100 pt-3 flex justify-between font-semibold text-stone-900 text-base">
               <span>Total</span>
-              <span className="font-mono">${total.toFixed(2)}</span>
+              <span className="font-mono">Rs.{total.toFixed(2)}</span>
             </div>
           </div>
 

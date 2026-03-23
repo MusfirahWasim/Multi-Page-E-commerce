@@ -57,7 +57,7 @@ export default function HomePage({ setPage, onViewProduct }) {
               </div>
               <div className="p-4">
                 <p className="text-sm font-medium text-stone-900 truncate">{product.name}</p>
-                <p className="text-sm font-semibold text-stone-700 mt-1">${product.price.toFixed(2)}</p>
+                <p className="text-sm font-semibold text-stone-700 mt-1">Rs.{product.price.toFixed(2)}</p>
               </div>
             </div>
           ))}

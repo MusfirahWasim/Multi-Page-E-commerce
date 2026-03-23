@@ -53,7 +53,7 @@ export default function ProductCard({ product, onAddToCart, cartQty }) {
         <p className="text-xs text-stone-400 leading-relaxed">{product.description}</p>
 
         <div className="mt-auto flex items-center justify-between pt-3 border-t border-stone-100">
-          <span className="text-lg font-semibold text-stone-900">${product.price.toFixed(2)}</span>
+          <span className="text-lg font-semibold text-stone-900">Rs.{product.price.toFixed(2)}</span>
           <button
             onClick={handleAdd}
             className={`px-4 py-2 rounded-xl text-xs font-medium transition-all duration-200

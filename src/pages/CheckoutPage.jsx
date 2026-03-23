@@ -18,6 +18,7 @@ export default function CheckoutPage({ cart, onPlaceOrder }) {
   const [form,   setForm]   = useState({})
   const [errors, setErrors] = useState({})
   const [placed, setPlaced] = useState(false)
+  const [savedTotal, setSavedTotal] = useState(0)
 
   const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0)
   const total    = subtotal + (subtotal > 0 ? 9.99 : 0)
@@ -41,6 +42,7 @@ export default function CheckoutPage({ cart, onPlaceOrder }) {
   const handleSubmit = () => {
     const e = validate()
     if (Object.keys(e).length) { setErrors(e); return }
+    setSavedTotal(total)
     setPlaced(true)
     onPlaceOrder()
   }
@@ -54,7 +56,7 @@ export default function CheckoutPage({ cart, onPlaceOrder }) {
         <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center text-3xl">✓</div>
         <h2 className="text-2xl font-semibold text-stone-900">Order Placed!</h2>
         <p className="text-sm text-stone-500 max-w-sm">Thanks for your order. You'll receive a confirmation email shortly.</p>
-        <p className="text-lg font-semibold text-stone-900 font-mono">Total paid: ${total.toFixed(2)}</p>
+        <p className="text-lg font-semibold text-stone-900 font-mono">Total paid: Rs.{savedTotal.toFixed(2)}</p>
       </div>
     )
   }
@@ -133,7 +135,7 @@ export default function CheckoutPage({ cart, onPlaceOrder }) {
             onClick={handleSubmit}
             className="w-full py-4 bg-stone-900 text-white rounded-xl text-sm font-medium hover:bg-stone-700 transition-colors"
           >
-            Place Order — ${total.toFixed(2)}
+            Place Order — Rs.{total.toFixed(2)}
           </button>
         </div>
 
@@ -154,7 +156,7 @@ export default function CheckoutPage({ cart, onPlaceOrder }) {
                   <p className="text-xs font-medium text-stone-900 truncate">{item.name}</p>
                   <p className="text-xs text-stone-400">× {item.qty}</p>
                 </div>
-                <span className="text-xs font-mono text-stone-700">${(item.price * item.qty).toFixed(2)}</span>
+                <span className="text-xs font-mono text-stone-700">Rs.{(item.price * item.qty).toFixed(2)}</span>
               </div>
             ))}
           </div>
@@ -162,15 +164,15 @@ export default function CheckoutPage({ cart, onPlaceOrder }) {
           <div className="border-t border-stone-100 pt-4 flex flex-col gap-2 text-sm">
             <div className="flex justify-between text-stone-500">
               <span>Subtotal</span>
-              <span className="font-mono">${subtotal.toFixed(2)}</span>
+              <span className="font-mono">Rs.{subtotal.toFixed(2)}</span>
             </div>
             <div className="flex justify-between text-stone-500">
               <span>Shipping</span>
-              <span className="font-mono">$9.99</span>
+              <span className="font-mono">Rs.99</span>
             </div>
             <div className="flex justify-between font-semibold text-stone-900 text-base pt-1">
               <span>Total</span>
-              <span className="font-mono">${total.toFixed(2)}</span>
+              <span className="font-mono">Rs.{total.toFixed(2)}</span>
             </div>
           </div>
         </div>

@@ -79,14 +79,14 @@ export default function ProductsPage({ cart, onAddToCart }) {
           {/* Max price */}
           <div className="flex flex-col gap-2">
             <label className="text-xs font-medium text-stone-500 uppercase tracking-wider">
-              Max Price — <span className="text-stone-900 font-semibold">${maxPrice}</span>
+              Max Price — <span className="text-stone-900 font-semibold">Rs.{maxPrice}</span>
             </label>
             <input
               type="range" min={5} max={200} step={5} value={maxPrice}
               onChange={e => setMaxPrice(Number(e.target.value))}
               className="w-full accent-stone-900 cursor-pointer"
             />
-            <div className="flex justify-between text-xs text-stone-400"><span>$5</span><span>$200</span></div>
+            <div className="flex justify-between text-xs text-stone-400"><span>Rs.5</span><span>Rs.200</span></div>
           </div>
 
           {/* Sort */}
