@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: #f0efed;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
