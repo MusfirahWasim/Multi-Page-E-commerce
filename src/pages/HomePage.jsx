@@ -27,23 +27,6 @@ export default function HomePage({ setPage, onViewProduct }) {
         </div>
       </section>
 
-      {/* Categories */}
-      <section className="w-full px-12 py-14">
-        <p className="text-xs font-mono text-stone-400 tracking-widest uppercase mb-2">Browse by</p>
-        <h2 className="text-2xl font-semibold text-stone-900 mb-8">Categories</h2>
-        <div className="grid grid-cols-4 gap-4">
-          {CATEGORIES.map(cat => (
-            <button
-              key={cat}
-              onClick={() => setPage('products')}
-              className="bg-white border border-stone-100 rounded-2xl p-6 flex items-center justify-center hover:shadow-md hover:-translate-y-0.5 transition-all duration-200 group"
-            >
-              <span className="text-sm font-medium text-stone-700 group-hover:text-stone-900">{cat}</span>
-            </button>
-          ))}
-        </div>
-      </section>
-
       {/* Featured products */}
       <section className="w-full px-12 py-14">
         <div className="flex items-end justify-between mb-8">
